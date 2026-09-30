@@ -3,137 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anonimo — Face Blur for Videos and Photos</title>
-<meta name="description" content="Blur bystanders in your footage before you publish. On-device face detection, no internet, nothing leaves your iPhone.">
-<style>
-  :root {
-    --bg: #131315;
-    --surface: #1f1f21;
-    --surface-high: #2a2a2c;
-    --text: #e4e2e4;
-    --text-muted: #9e9e9e;
-    --accent: #8ccdff;
-    --accent-dark: #2d9cdb;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 48px 24px;
-  }
-  header {
-    text-align: center;
-    padding: 80px 24px 48px;
-  }
-  .logo {
-    width: 96px;
-    height: 96px;
-    border-radius: 22px;
-    background: linear-gradient(135deg, var(--surface) 0%, #06060A 100%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    font-size: 56px;
-    font-weight: 900;
-    color: var(--accent);
-    letter-spacing: -4px;
-  }
-  h1 {
-    font-size: 48px;
-    font-weight: 800;
-    margin: 0 0 16px;
-    letter-spacing: -1px;
-  }
-  .tagline {
-    font-size: 20px;
-    color: var(--text-muted);
-    margin: 0;
-  }
-  .features {
-    display: grid;
-    gap: 16px;
-    margin: 48px 0;
-  }
-  .feature {
-    background: var(--surface);
-    border-radius: 16px;
-    padding: 24px;
-  }
-  .feature h3 {
-    margin: 0 0 8px;
-    color: var(--accent);
-    font-size: 18px;
-  }
-  .feature p {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 15px;
-  }
-  .links {
-    text-align: center;
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid var(--surface-high);
-  }
-  .links a {
-    color: var(--accent);
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 14px;
-  }
-  .links a:hover { color: var(--accent-dark); }
-  footer {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 13px;
-    padding: 32px 24px;
-  }
-</style>
+<title>Anonimo Face Blur — Offline face blur and emoji covers for iPhone video</title>
+<meta name="description" content="Blur everyone in your video except the people you pick. Pixelate, blur or cover faces with emoji — fully offline on your iPhone. No upload, no account, Data Not Collected.">
+<link rel="canonical" href="https://nakolini.github.io/anonimo/">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+<meta name="apple-itunes-app" content="app-id=6762560095">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anonimo Face Blur — offline face blur for iPhone video">
+<meta property="og:description" content="Blur everyone except the people you pick. Pixelation, blur or emoji covers. Nothing leaves your iPhone.">
+<meta property="og:url" content="https://nakolini.github.io/anonimo/">
+<meta property="og:image" content="https://nakolini.github.io/anonimo/img/shot-choose.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Anonimo Face Blur",
+  "alternateName": "Face Blur for Video: Anonimo",
+  "operatingSystem": "iOS 17.0 or later",
+  "applicationCategory": "MultimediaApplication",
+  "url": "https://nakolini.github.io/anonimo/",
+  "downloadUrl": "https://apps.apple.com/us/app/face-blur-for-video-anonimo/id6762560095",
+  "image": "https://nakolini.github.io/anonimo/img/icon.png",
+  "screenshot": "https://nakolini.github.io/anonimo/img/shot-choose.jpg",
+  "author": { "@type": "Person", "name": "Vitalii Kikot" },
+  "inLanguage": ["en", "fr", "de", "es", "pt-BR", "it", "pl", "uk", "ja", "ko"],
+  "featureList": [
+    "Works fully offline, on-device face detection",
+    "Groups faces by person across the whole video",
+    "Blur everyone except the people you pick",
+    "Pixelation, Gaussian blur, or emoji covers that follow each face",
+    "Exports at source resolution, up to 4K HEVC",
+    "Photos: JPEG, PNG, HEIC",
+    "No account, no analytics, Data Not Collected"
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Anonimo Pro Lifetime", "price": "14.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Anonimo Pro Yearly", "price": "9.99", "priceCurrency": "USD" }
+  ]
+}
+</script>
 </head>
 <body>
-<header>
-  <div class="logo">A</div>
-  <h1>Anonimo</h1>
-  <p class="tagline">Blur faces in videos and photos, on-device.</p>
-</header>
-
 <div class="container">
-  <div class="features">
-    <div class="feature">
-      <h3>On-device face detection</h3>
-      <p>Every face detected, grouped by person, and blurred directly on your iPhone. No upload, no cloud, no account.</p>
+
+  <header class="hero">
+    <img class="icon" src="img/icon.png" alt="Anonimo app icon" width="96" height="96">
+    <h1>Anonimo Face Blur</h1>
+    <p class="tagline">Blur everyone in your video <span class="highlight">except the people you pick</span>.</p>
+    <p class="sub">Pixelation, blur or emoji covers. Fully offline, on your iPhone.</p>
+    <a class="badge" href="https://apps.apple.com/us/app/face-blur-for-video-anonimo/id6762560095">
+      <img src="img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54">
+    </a>
+  </header>
+
+  <div class="shots">
+    <img src="img/shot-airplane.jpg" alt="Anonimo works in Airplane Mode" width="600" height="1299">
+    <img src="img/shot-choose.jpg" alt="Choose who stays visible: faces grouped by person" width="600" height="1299">
+    <img src="img/shot-result.jpg" alt="Exported video with unselected faces blurred" width="600" height="1299">
+  </div>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>Pick a video or photo from your library.</li>
+    <li>Anonimo finds every face and groups them by person — across the whole video, not frame by frame.</li>
+    <li>Tap the people who stay visible. Everyone else is hidden in every frame.</li>
+    <li>Export to Photos at source resolution.</li>
+  </ol>
+
+  <h2>Three ways to hide a face</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Pixelation</h3>
+      <p>Crisp mosaic for full anonymity. Free.</p>
     </div>
-    <div class="feature">
-      <h3>Built for creators</h3>
-      <p>Blur bystanders in vlog footage before you publish to YouTube, TikTok, Instagram, or anywhere else.</p>
+    <div class="card">
+      <h3>Gaussian blur</h3>
+      <p>Soft blur with feathered edges for a natural look. Pro.</p>
     </div>
-    <div class="feature">
-      <h3>Two blur styles</h3>
-      <p>Soft Gaussian blur for a natural look, or crisp pixelation for full anonymity.</p>
-    </div>
-    <div class="feature">
-      <h3>Keeps your original quality</h3>
-      <p>HEVC encoding preserves your 4K source. Output looks like your input, minus the faces you wanted gone.</p>
+    <div class="card">
+      <h3>Emoji covers</h3>
+      <p>An emoji that follows each face through the video. The smiley is free, the full set is Pro, and a Halloween row appears every October.</p>
     </div>
   </div>
 
-  <div class="links">
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="https://github.com/nakolini/anonimo">GitHub</a>
+  <h2>Private by design</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Works in Airplane Mode</h3>
+      <p>Detection, blurring and export all run on your iPhone. Your videos never leave the device.</p>
+    </div>
+    <div class="card">
+      <h3>Data Not Collected</h3>
+      <p>That's the App Store privacy label. No analytics, no tracking, no ads, no servers.</p>
+    </div>
+    <div class="card">
+      <h3>No account</h3>
+      <p>Open the app and start. There is nothing to sign up for.</p>
+    </div>
   </div>
+
+  <h2>Free and Pro</h2>
+  <table class="plans">
+    <thead>
+      <tr><th></th><th>Free</th><th>Pro</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Face detection and grouping</td><td>Unlimited</td><td>Unlimited</td></tr>
+      <tr><td>Video length</td><td>Up to 30 seconds</td><td>Unlimited</td></tr>
+      <tr><td>Export resolution</td><td>720p</td><td>Source, up to 4K</td></tr>
+      <tr><td>Hide styles</td><td>Pixelation, smiley emoji</td><td>Pixelation, Gaussian blur, all emoji</td></tr>
+      <tr><td>Watermark</td><td>Small, in the corner</td><td>None</td></tr>
+      <tr><td>Price</td><td>Free</td><td>Lifetime $14.99 / €17.99<br>Yearly $9.99 / €9.99, 7-day free trial</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Prices vary by region and are set by the App Store.</p>
+
+  <h2 id="faq">FAQ</h2>
+
+  <div class="faq">
+    <h3>Does Anonimo work offline?</h3>
+    <p>Yes, even in Airplane Mode. All face detection and processing runs on your iPhone. The internet is only needed to buy Anonimo Pro.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Can I blur everyone except myself?</h3>
+    <p>Yes. Anonimo groups faces by person, so you tap the people who stay visible once and everyone else is hidden in every frame of the video.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Can I cover faces with emoji in a video?</h3>
+    <p>Yes. The emoji follows each face as it moves. The smiley is free; Pro unlocks the full set.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Does Anonimo upload my videos?</h3>
+    <p>Never. The app has no networking code for media, no account and no analytics. The App Store privacy label is Data Not Collected. See the <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Is Anonimo free?</h3>
+    <p>Yes, with limits: video exports up to 30 seconds at 720p, pixelation and the smiley emoji, and a small watermark. Pro removes the limits.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Lifetime or Yearly — which is better?</h3>
+    <p>Both unlock the same Pro features. Lifetime is a one-time purchase and cheaper long-term. Yearly is cheaper to start and includes a 7-day free trial.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Which videos and photos are supported?</h3>
+    <p>Any standard iPhone video (H.264, HEVC) up to 4K, and photos in JPEG, PNG and HEIC. Anonimo runs on iPhone with iOS 17 or later.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Will it find every face?</h3>
+    <p>Frontal and angled faces, yes. Very small, heavily covered or extreme-profile faces can be missed, and a face that is never detected stays visible — review your export before publishing.</p>
+  </div>
+
+  <div class="faq">
+    <h3>How do I restore a purchase on a new iPhone?</h3>
+    <p>Open the paywall in Anonimo and tap "Restore purchases" while signed in with the Apple ID that made the purchase.</p>
+  </div>
+
+  <div class="faq">
+    <h3>How do I cancel a subscription?</h3>
+    <p>Open iOS Settings &rarr; your Apple ID &rarr; Subscriptions &rarr; Anonimo. Cancel at least 24 hours before the period ends to avoid the next renewal.</p>
+  </div>
+
+  <nav class="links">
+    <a href="support.html">Support</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="https://github.com/nakolini/anonimo">GitHub</a>
+  </nav>
 </div>
 
-<footer>
-  &copy; 2026 Vitalii Kikot
-</footer>
+<footer>&copy; 2026 Vitalii Kikot</footer>
 </body>
 </html>
