@@ -4,10 +4,107 @@
 <meta charset="utf-8">
 <link rel="canonical" href="https://nakolini.github.io/xml2fcpxml/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XML to FCPXML — Premiere Pro timelines in Final Cut Pro</title>
+<title>XML to FCPXML — convert Premiere Pro XML to Final Cut Pro</title>
 <meta name="description" content="Convert Premiere Pro XML to FCPXML for Final Cut Pro: real titles instead of markers, correct frame rates for phone and drone footage, and a report before you import.">
 <link rel="icon" href="icon.png">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "XML to FCPXML",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "macOS 14 or later",
+  "url": "https://nakolini.github.io/xml2fcpxml/",
+  "description": "Converts Premiere Pro XML into FCPXML for Final Cut Pro, with Essential Graphics titles as editable titles, correct frame rates and timecode so clips relink, and a report of what needs checking before import.",
+  "screenshot": "https://nakolini.github.io/xml2fcpxml/window.png",
+  "publisher": {
+   "@type": "Organization",
+   "name": "Nakolini",
+   "url": "https://nakolini.github.io/"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Can Final Cut Pro open a Premiere Pro project or its XML directly?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. Final Cut Pro imports only FCPXML, and Premiere Pro exports only the older Final Cut Pro 7 XML, which current Final Cut Pro cannot read. A converter is needed in between, and this app is one."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How is it different from SendToX or going through DaVinci Resolve?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "SendToX carries more of the rest — markers, volume, many transitions, keyframes — but turns Essential Graphics titles into markers, drops media timecode and rounds frame rates, so Sony, DJI and phone clips often refuse to relink; it also runs on Apple silicon through Rosetta. XML to FCPXML brings titles across as editable titles, keeps timecode and the real frame rate, and shows a report of what needs checking before you import. DaVinci Resolve is free and can import the XML and export FCPXML, but it means installing a full editor and converting twice for one project."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Do I need Premiere Pro installed?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. You only need the XML file someone exported from Premiere. Final Cut Pro is needed only to open the result; the app can save the FCPXML for another Mac."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Do I need the original footage?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No — the conversion works from the XML alone, and most clips relink fine later. The footage helps for phone and drone clips: with Locate Media their frame rate and timecode come from the files, not from Premiere's rounded values."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Which versions of Final Cut Pro and Premiere work?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "The app writes FCPXML 1.10, which Final Cut Pro 10.6 and later imports — the one-time purchase, the free trial or Final Cut Pro in Creator Studio. On the Premiere side it reads the standard Final Cut Pro XML export."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "What doesn't get converted?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "• Transitions other than a cross dissolve. • Markers, volume, audio fades and pan. • Effects and colour grading, keyframed motion, opacity, crop. • Nested sequences as clips — each nested sequence converts as its own project instead. Cuts, audio, speed changes and ramps, cross dissolves, position, scale and rotation, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Why does it say “Frame rate could be 59.94 or 60”?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Premiere writes both a true 59.94 fps file and a 60 fps phone clip as “59” in its XML, so the XML alone can't tell them apart. The app keeps 59.94, which is right for most cameras. If Final Cut won't relink one of those clips, use Locate Media and the app reads the real rate from the file."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Are my files uploaded anywhere?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. Everything happens on your Mac and the app makes no network connections. See the privacy policy ."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How much will it cost?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "It's free during the TestFlight beta. On the Mac App Store it is a one-time purchase of $19.99, with a launch price of $9.99 for the first two weeks."
+    }
+   }
+  ]
+ }
+]
+</script>
 </head>
 <body>
 
@@ -76,7 +173,7 @@
 
 <section id="how-it-works">
   <div class="wrap">
-    <h2>How it works</h2>
+    <h2>How to move a Premiere Pro project to Final Cut Pro</h2>
     <p class="sub">Seconds, even for a twelve-hour project with thousands of clips.</p>
     <div class="grid steps">
       <div class="card">
@@ -243,6 +340,22 @@
     <p class="sub">Click a question to open it.</p>
 
     <details>
+      <summary>Can Final Cut Pro open a Premiere Pro project or its XML directly?</summary>
+      <p>No. Final Cut Pro imports only FCPXML, and Premiere Pro exports only the older Final Cut Pro 7 XML, which
+      current Final Cut Pro cannot read. A converter is needed in between, and this app is one.</p>
+    </details>
+
+    <details>
+      <summary>How is it different from SendToX or going through DaVinci Resolve?</summary>
+      <p>SendToX carries more of the rest — markers, volume, many transitions, keyframes — but turns Essential
+      Graphics titles into markers, drops media timecode and rounds frame rates, so Sony, DJI and phone clips
+      often refuse to relink; it also runs on Apple silicon through Rosetta. XML to FCPXML brings titles across as
+      editable titles, keeps timecode and the real frame rate, and shows a report of what needs checking before
+      you import. DaVinci Resolve is free and can import the XML and export FCPXML, but it means installing a
+      full editor and converting twice for one project.</p>
+    </details>
+
+    <details>
       <summary>Do I need Premiere Pro installed?</summary>
       <p>No. You only need the XML file someone exported from Premiere. Final Cut Pro is needed only to open the
       result; the app can save the FCPXML for another Mac.</p>
@@ -264,12 +377,14 @@
     <details>
       <summary>What doesn't get converted?</summary>
       <ul>
-        <li>Transitions, effects and colour grading.</li>
-        <li>Markers, keyframed motion and variable speed ramps.</li>
-        <li>Nested sequences, generators and mattes.</li>
+        <li>Transitions other than a cross dissolve.</li>
+        <li>Markers, volume, audio fades and pan.</li>
+        <li>Effects and colour grading, keyframed motion, opacity, crop.</li>
+        <li>Nested sequences as clips — each nested sequence converts as its own project instead.</li>
       </ul>
-      <p>Cuts, audio, constant speed changes, position and scale, still images and titles do convert. Everything
-      skipped is listed in the report with its clip and timecode, so nothing disappears silently.</p>
+      <p>Cuts, audio, speed changes and ramps, cross dissolves, position, scale and rotation, still images and titles
+      do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
+      silently.</p>
     </details>
 
     <details>
@@ -287,8 +402,8 @@
 
     <details>
       <summary>How much will it cost?</summary>
-      <p>It's free during the TestFlight beta. At launch on the Mac App Store it will be a one-time purchase, and
-      people who tested it will be able to get it for free — follow the announcement where you found the beta.</p>
+      <p>It's free during the TestFlight beta. On the Mac App Store it is a one-time purchase of $19.99, with a
+      launch price of $9.99 for the first two weeks.</p>
     </details>
 
     <details>

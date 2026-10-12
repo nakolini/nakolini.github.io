@@ -1,0 +1,13 @@
+# Nakolini
+
+> Small iPhone and Mac apps that do one thing well.
+
+## Apps
+
+- [XML to FCPXML](https://nakolini.github.io/xml2fcpxml/): Mac app that converts a Premiere Pro XML export into FCPXML for Final Cut Pro. Essential Graphics titles arrive as editable Final Cut titles (not markers), frame rate and timecode are corrected so phone and drone clips relink, and a report lists what needs checking before import. Runs offline on macOS 14+.
+- [Kroky: Walk Breaks](https://kroky.nakolini.com/): walk breaks for desk workers, iPhone.
+- [Anonimo Face Blur](https://nakolini.github.io/anonimo/): offline face blur and emoji covers for iPhone video.
+- [Prospekt: Lens Simulator](https://prospekt.nakolini.com/): see what any focal length frames on your camera, live on iPhone.
+- [Less or More](https://nakolini.github.io/less-or-more/): mental math against the clock, iPhone.
+- [Tap Grid](https://nakolini.github.io/tap-grid/): arcade reaction game, iPhone.
+- [Red Dot](https://nakolini.github.io/red-dot/): reaction game, iPhone.
