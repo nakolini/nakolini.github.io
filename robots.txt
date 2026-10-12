@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nakolini.github.io/anonimo/sitemap.xml
+Sitemap: https://nakolini.github.io/xml2fcpxml/sitemap.xml

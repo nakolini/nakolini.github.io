@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="https://nakolini.github.io/xml2fcpxml/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XML to FCPXML — Premiere Pro timelines in Final Cut Pro</title>
+<meta name="description" content="Convert Premiere Pro XML to FCPXML for Final Cut Pro: real titles instead of markers, correct frame rates for phone and drone footage, and a report before you import.">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="icon.png" alt="">XML to FCPXML</a>
+    <nav>
+      <a class="optional" href="#features">Features</a>
+      <a href="#carried">What carries</a>
+      <a href="#how-to">How-to</a>
+      <a href="#faq">FAQ</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <img class="icon" src="icon.png" alt="XML to FCPXML icon">
+    <h1>Premiere Pro timelines<br>in Final Cut Pro</h1>
+    <p class="lede">Drop the XML you exported from Premiere, get an FCPXML that opens in Final Cut Pro —
+    with titles that are still titles, and clips that relink.</p>
+    <div class="cta">
+      <a class="button" href="https://testflight.apple.com/join/Ga1XQmqw">Join the beta on TestFlight</a>
+      <a class="button ghost" href="#how-it-works">How it works</a>
+    </div>
+    <p class="note">macOS 14 or later · Apple silicon and Intel · free while in beta</p>
+    <img class="shot" src="window.png" alt="The app with a converted Premiere project: sequences, and a report of what to check before importing">
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does differently</h2>
+    <p class="sub">Getting the cuts across is the easy part. These are the parts that usually have to be fixed by
+    hand afterwards.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="dot amber"></span>
+        <h3>Titles stay titles</h3>
+        <p>Essential Graphics text arrives as editable Basic Titles with its font, size, colour, alignment and
+        position — not as text pasted into markers.</p>
+      </div>
+      <div class="card">
+        <span class="dot teal"></span>
+        <h3>Clips that relink</h3>
+        <p>Premiere's XML rounds the frame rate of iPhone and drone footage, and Final Cut refuses to relink a clip
+        whose rate is off. The app corrects the known cases and keeps each file's timecode.</p>
+      </div>
+      <div class="card">
+        <span class="dot blue"></span>
+        <h3>A report before import</h3>
+        <p>Transitions, effects, markers, nested sequences, missing fonts, uncertain frame rates: you see what
+        needs attention before Final Cut does, with the clip and timecode for each. What needs your hand comes
+        first; what is only worth knowing sits below it.</p>
+      </div>
+      <div class="card">
+        <span class="dot mix"></span>
+        <h3>Reads your media</h3>
+        <p>Point it at the folders with the original footage and it takes frame rate, duration and timecode from
+        the files themselves. Clips then open in Final Cut without a relink.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">Seconds, even for a twelve-hour project with thousands of clips.</p>
+    <div class="grid steps">
+      <div class="card">
+        <h3>Export from Premiere</h3>
+        <p>Select the sequence, then <em>File ▸ Export ▸ Final Cut Pro XML</em>.</p>
+      </div>
+      <div class="card">
+        <h3>Drop it on the app</h3>
+        <p>Pick the sequences you want and read the report. Add <em>Locate Media</em> if you have the footage.</p>
+      </div>
+      <div class="card">
+        <h3>Open in Final Cut Pro</h3>
+        <p>One click opens it in Final Cut, or save the FCPXML and import it on another Mac.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="carried">
+  <div class="wrap">
+    <h2>What carries over</h2>
+    <p class="sub">The honest list. Everything the app leaves behind is named in the report, with the clip and
+    the timecode, before you import.</p>
+    <div class="guide">
+
+      <article id="carried-yes">
+        <h3>Comes across</h3>
+        <ul>
+          <li>Every sequence in the file, each as its own Final Cut project — you pick which ones to convert.</li>
+          <li>The whole timeline: cuts, gaps, clip order. V1 becomes the primary storyline, V2 and up become
+          connected clips, audio tracks become connected audio. Disabled clips arrive disabled.</li>
+          <li>Essential Graphics titles as real, editable Final Cut titles — text, font, size, colour,
+          alignment, position and scale.</li>
+          <li>Speed: a constant speed, reverse, and speed ramps with the whole curve rather than an average.</li>
+          <li>Cross dissolves — between two clips, and the fade from or to black at the edge of one — with the
+          audio crossfade where the audio travels inside the clip.</li>
+          <li>Position, scale and rotation of each clip.</li>
+          <li>Stills (JPEG, PNG, PSD, HEIC…) with their length on the timeline.</li>
+          <li>Any frame rate Premiere writes, NTSC rates included, 4K and vertical sequences.</li>
+          <li>Media timecode, so Final Cut opens the right part of each file.</li>
+        </ul>
+      </article>
+
+      <article id="carried-no">
+        <h3>Does not, yet</h3>
+        <ul>
+          <li>Transitions other than a cross dissolve — and a dissolve Premiere pressed flat against the cut,
+          because Final Cut dissolves across a cut and there is nothing on the other side. The cut stays
+          where it was.</li>
+          <li>Markers, chapter markers included.</li>
+          <li>Volume, audio fades and pan: clips arrive at full level.</li>
+          <li>Opacity and blend modes.</li>
+          <li>Effects — Lumetri, blurs, the stabiliser — and keyframed motion. The clip arrives with its
+          static position, scale and rotation.</li>
+          <li>Crop and anchor point.</li>
+          <li>Nested sequences: the nested clip is not placed, but the sequence itself converts as its own
+          project, so you can import it and drop it back in.</li>
+          <li>A sequence starting at a timecode other than zero: every converted timeline starts at
+          00:00:00:00.</li>
+          <li>A title mixing several styles keeps the first one; shapes in a graphic are dropped and only the
+          text comes over.</li>
+        </ul>
+      </article>
+
+      <article id="carried-premiere">
+        <h3>Gone before the app sees it</h3>
+        <p>Premiere drops these on the way out, into the XML itself. No converter can bring them back — not
+        this one, not Final Cut, not DaVinci Resolve.</p>
+        <ul>
+          <li><strong>Freeze frames.</strong> A clip held with Add Frame Hold or Insert Frame Hold Segment is
+          written out as an ordinary playing clip; nothing in the file says a frame was ever held.</li>
+          <li><strong>Dip to Black becomes a Cross Dissolve.</strong> Premiere substitutes it on export and
+          says so in its own report, which it saves next to the XML.</li>
+          <li><strong>An eased speed ramp keeps its frames, not its easing.</strong> The clip speeds up and
+          slows down in the right places; the acceleration between keyframes is even rather than curved.</li>
+          <li><strong>Only the sequences you select.</strong> With nothing selected in the Project panel,
+          Premiere writes out the open sequence alone.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="how-to">
+  <div class="wrap">
+    <h2>How-to</h2>
+    <p class="sub">The few things worth knowing to get a clean import.</p>
+    <div class="guide">
+
+      <article id="export">
+        <h3>Export the XML from Premiere Pro</h3>
+        <ol>
+          <li>Open the project and select the sequence in the Project panel (or click its timeline).</li>
+          <li>Choose <em>File ▸ Export ▸ Final Cut Pro XML…</em> and save the <code>.xml</code> file.</li>
+          <li>Send that one file. The footage does not need to travel with it.</li>
+        </ol>
+        <p class="tip">To convert several sequences at once, select them all in the Project panel before exporting;
+        the app lists each one and you choose which to convert.</p>
+      </article>
+
+      <article id="relink">
+        <h3>Clips won't relink in Final Cut</h3>
+        <p>Final Cut relinks a file only if its frame rate, length and timecode match what the FCPXML says.
+        Premiere's XML gets these wrong for footage with a variable frame rate — iPhone and drone clips mostly.</p>
+        <ol>
+          <li>Look at the report: <em>Phone or drone frame rate guessed</em> and <em>Frame rate could be 59.94 or 60</em>
+          list exactly the clips at risk.</li>
+          <li>Click <em>Locate Media…</em> and choose the folders with the original files. Subfolders are searched too.</li>
+          <li>Wait for <em>Reading media</em> to finish, then save or open the result again.</li>
+        </ol>
+        <p class="tip">No footage on this Mac? Convert on the Mac that has it, or relink in Final Cut with
+        <em>File ▸ Relink Files</em> — the guessed rates are right for most cameras.</p>
+      </article>
+
+      <article id="empty">
+        <h3>Final Cut imported, but the timeline is empty</h3>
+        <p>You import the FCPXML, Final Cut says something like <em>Invalid edit with no respective media</em>, and
+        the project opens with gaps instead of clips. Nothing is broken: Final Cut simply cannot find the footage
+        at the moment in time the file claims it lives.</p>
+        <p>It happens with footage that has no timecode of its own — screen recordings, stock clips, anything
+        exported from another app. Premiere still needs a number, so it invents one from the file's creation time
+        and writes it into the XML as though the camera had recorded it. Final Cut then opens the real file, sees
+        a clip that starts at zero, and finds nothing at, say, four in the afternoon.</p>
+        <ol>
+          <li>Click <em>Locate Media…</em> and choose the folders with the original footage. The app lists the
+          folders Premiere used, so you know what to look for; subfolders are searched too.</li>
+          <li>Wait for <em>Reading media</em> to finish. The app now takes the timecode from the files themselves
+          instead of Premiere's word, and the warning at the top disappears.</li>
+          <li>Save or open the result again. The clips land where they belong.</li>
+        </ol>
+        <p class="tip">A file the app could not read stays listed in grey, together with the folder Premiere kept
+        it in: add that folder as well, or relink that one clip in Final Cut with <em>File ▸ Relink Files</em>.
+        Picking a second folder adds to the first, so footage spread over several drives is no problem.</p>
+      </article>
+
+      <article id="titles">
+        <h3>What carries over in titles</h3>
+        <ul>
+          <li>Text, line breaks and any language, including Cyrillic.</li>
+          <li>Font, size, colour, left or centre alignment, and position on screen.</li>
+          <li>The layer's scale, folded into the font size.</li>
+        </ul>
+        <p>Shapes and backgrounds inside a graphic, gradients, strokes and shadows are not carried; the report
+        names every title that had shapes. If a font isn't installed on this Mac, Final Cut shows a substitute
+        until you install it.</p>
+      </article>
+
+      <article id="graphic">
+        <h3>A title shows up as “Graphic”</h3>
+        <p>When you duplicate a title in Premiere and only move it, Premiere doesn't write its text into the XML
+        at all — there is nothing to convert. The app keeps the title's position so you can retype it in place.</p>
+        <p class="tip">To avoid it, click into the text of each duplicated title in Premiere (even type and delete a
+        letter) before exporting.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <p class="sub">Click a question to open it.</p>
+
+    <details>
+      <summary>Do I need Premiere Pro installed?</summary>
+      <p>No. You only need the XML file someone exported from Premiere. Final Cut Pro is needed only to open the
+      result; the app can save the FCPXML for another Mac.</p>
+    </details>
+
+    <details>
+      <summary>Do I need the original footage?</summary>
+      <p>No — the conversion works from the XML alone, and most clips relink fine later. The footage helps for
+      phone and drone clips: with <em>Locate Media</em> their frame rate and timecode come from the files, not
+      from Premiere's rounded values.</p>
+    </details>
+
+    <details>
+      <summary>Which versions of Final Cut Pro and Premiere work?</summary>
+      <p>The app writes FCPXML 1.10, which Final Cut Pro 10.6 and later imports — the one-time purchase, the free
+      trial or Final Cut Pro in Creator Studio. On the Premiere side it reads the standard Final Cut Pro XML export.</p>
+    </details>
+
+    <details>
+      <summary>What doesn't get converted?</summary>
+      <ul>
+        <li>Transitions, effects and colour grading.</li>
+        <li>Markers, keyframed motion and variable speed ramps.</li>
+        <li>Nested sequences, generators and mattes.</li>
+      </ul>
+      <p>Cuts, audio, constant speed changes, position and scale, still images and titles do convert. Everything
+      skipped is listed in the report with its clip and timecode, so nothing disappears silently.</p>
+    </details>
+
+    <details>
+      <summary>Why does it say “Frame rate could be 59.94 or 60”?</summary>
+      <p>Premiere writes both a true 59.94 fps file and a 60 fps phone clip as “59” in its XML, so the XML alone
+      can't tell them apart. The app keeps 59.94, which is right for most cameras. If Final Cut won't relink one
+      of those clips, use <em>Locate Media</em> and the app reads the real rate from the file.</p>
+    </details>
+
+    <details>
+      <summary>Are my files uploaded anywhere?</summary>
+      <p>No. Everything happens on your Mac and the app makes no network connections. See the
+      <a href="privacy.html">privacy policy</a>.</p>
+    </details>
+
+    <details>
+      <summary>How much will it cost?</summary>
+      <p>It's free during the TestFlight beta. At launch on the Mac App Store it will be a one-time purchase, and
+      people who tested it will be able to get it for free — follow the announcement where you found the beta.</p>
+    </details>
+
+    <details>
+      <summary>How do I send feedback?</summary>
+      <p>Use <em>Send Beta Feedback</em> in the TestFlight app, or email
+      <a href="mailto:kikot.vit@gmail.com?subject=XML%20to%20FCPXML">kikot.vit@gmail.com</a>. The XML that
+      converted wrong is the most useful thing you can attach.</p>
+    </details>
+  </div>
+</section>
+
+<section id="support">
+  <div class="wrap">
+    <h2>Support</h2>
+    <p class="sub">Something converted wrong, or the app did something unexpected? Email
+    <a href="mailto:kikot.vit@gmail.com?subject=XML%20to%20FCPXML">kikot.vit@gmail.com</a> with the XML and a
+    screenshot of what looks wrong. Your files are used only to fix the problem.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Vitalii Kikot · <a href="privacy.html">Privacy Policy</a></span>
+    <span>Final Cut Pro is a trademark of Apple Inc. Premiere Pro is a trademark of Adobe.
+    This app is not affiliated with either.</span>
+  </div>
+</footer>
+
+</body>
+</html>
