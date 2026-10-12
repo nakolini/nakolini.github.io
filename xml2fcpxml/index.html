@@ -18,7 +18,11 @@
   "operatingSystem": "macOS 14 or later",
   "url": "https://nakolini.github.io/xml2fcpxml/",
   "downloadUrl": "https://apps.apple.com/app/id6820127014",
-  "offers": {"@type": "Offer", "price": "19.99", "priceCurrency": "USD"},
+  "offers": {
+   "@type": "Offer",
+   "price": "19.99",
+   "priceCurrency": "USD"
+  },
   "description": "Converts Premiere Pro XML into FCPXML for Final Cut Pro, with Essential Graphics titles as editable titles, correct frame rates and timecode so clips relink, and a report of what needs checking before import.",
   "screenshot": "https://nakolini.github.io/xml2fcpxml/window.png",
   "publisher": {
@@ -37,14 +41,6 @@
     "acceptedAnswer": {
      "@type": "Answer",
      "text": "No. Final Cut Pro imports only FCPXML, and Premiere Pro exports only the older Final Cut Pro 7 XML, which current Final Cut Pro cannot read. A converter is needed in between, and this app is one."
-    }
-   },
-   {
-    "@type": "Question",
-    "name": "How is it different from SendToX or going through DaVinci Resolve?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "SendToX carries more of the rest — markers, volume, many transitions, keyframes — but turns Essential Graphics titles into markers, drops media timecode and rounds frame rates, so Sony, DJI and phone clips often refuse to relink. XML to FCPXML brings titles across as editable titles, keeps timecode and the real frame rate, and shows a report of what needs checking before you import. DaVinci Resolve is free and can import the XML and export FCPXML, but it means installing a full editor and converting twice for one project."
     }
    },
    {
@@ -116,6 +112,7 @@
     <nav>
       <a class="optional" href="#features">Features</a>
       <a href="#carried">What carries</a>
+      <a class="optional" href="#compare">Compare</a>
       <a href="#how-to">How-to</a>
       <a href="#faq">FAQ</a>
       <a href="#support">Support</a>
@@ -260,6 +257,32 @@
   </div>
 </section>
 
+<section id="compare">
+  <div class="wrap">
+    <h2>Compared with SendToX and DaVinci Resolve</h2>
+    <p class="sub">Three ways to get a Premiere Pro timeline into Final Cut Pro, and what each is good at.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>XML to FCPXML</h3>
+        <p>Essential Graphics titles arrive as editable titles. Timecode and the real frame rate are kept, so phone,
+        Sony and DJI clips relink. A report shows what needs checking before you import. Not yet: markers, volume,
+        most transitions, keyframes.</p>
+      </div>
+      <div class="card">
+        <h3>SendToX</h3>
+        <p>Carries more of the rest — markers, volume, many transitions, keyframes. Essential Graphics titles
+        become markers, media timecode is dropped and frame rates are rounded, so Sony, DJI and phone clips often
+        refuse to relink.</p>
+      </div>
+      <div class="card">
+        <h3>DaVinci Resolve</h3>
+        <p>Free, and can import the XML and export FCPXML. It means installing a full editor and converting twice
+        for one project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="how-to">
   <div class="wrap">
     <h2>How-to</h2>
@@ -345,16 +368,6 @@
       <summary>Can Final Cut Pro open a Premiere Pro project or its XML directly?</summary>
       <p>No. Final Cut Pro imports only FCPXML, and Premiere Pro exports only the older Final Cut Pro 7 XML, which
       current Final Cut Pro cannot read. A converter is needed in between, and this app is one.</p>
-    </details>
-
-    <details>
-      <summary>How is it different from SendToX or going through DaVinci Resolve?</summary>
-      <p>SendToX carries more of the rest — markers, volume, many transitions, keyframes — but turns Essential
-      Graphics titles into markers, drops media timecode and rounds frame rates, so Sony, DJI and phone clips
-      often refuse to relink. XML to FCPXML brings titles across as
-      editable titles, keeps timecode and the real frame rate, and shows a report of what needs checking before
-      you import. DaVinci Resolve is free and can import the XML and export FCPXML, but it means installing a
-      full editor and converting twice for one project.</p>
     </details>
 
     <details>
