@@ -72,7 +72,7 @@
     "name": "What doesn't get converted?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "• Transitions other than a cross dissolve. • Markers. • Effects and colour grading, keyframed motion, opacity, crop. • Nested sequences as clips — each nested sequence converts as its own project instead. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, position, scale and rotation, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
+     "text": "• Transitions other than a cross dissolve. • Effects and colour grading. • Nested sequences as clips — each nested sequence converts as its own project instead. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend modes, position, scale, rotation and crop with their keyframes, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
     }
    },
    {
@@ -156,7 +156,7 @@
       <div class="card">
         <span class="dot blue"></span>
         <h3>A report before import</h3>
-        <p>Transitions, effects, markers, nested sequences, missing fonts, uncertain frame rates: you see what
+        <p>Transitions, effects, nested sequences, missing fonts, uncertain frame rates: you see what
         needs attention before Final Cut does, with the clip and timecode for each. What needs your hand comes
         first; what is only worth knowing sits below it.</p>
       </div>
@@ -209,7 +209,13 @@
           <li>Speed: a constant speed, reverse, and speed ramps with the whole curve rather than an average.</li>
           <li>Cross dissolves — between two clips, and the fade from or to black at the edge of one — with the
           audio crossfade where the audio travels inside the clip.</li>
-          <li>Position, scale and rotation of each clip.</li>
+          <li>Position, scale, rotation, anchor point and crop of each clip, with their keyframes — a Ken Burns
+          move on a photo included.</li>
+          <li>Opacity with its fades, and the blend modes Premiere writes out: Screen, Multiply, Add, Lighten,
+          Darken, Soft Light, Hard Light and Difference.</li>
+          <li>Markers — on the sequence and on clips, with their names, comments and length.</li>
+          <li>The sequence’s start timecode, drop-frame included, so a timeline starting at 01:00:00:00 starts
+          there in Final Cut too.</li>
           <li>Clip volume and pan, keyframes included: fades, dips and pans arrive as Final Cut volume and
           pan keyframes at the same moments.</li>
           <li>Stills (JPEG, PNG, PSD, HEIC…) with their length on the timeline.</li>
@@ -224,16 +230,11 @@
           <li>Transitions other than a cross dissolve — and a dissolve Premiere pressed flat against the cut,
           because Final Cut dissolves across a cut and there is nothing on the other side. The cut stays
           where it was.</li>
-          <li>Markers, chapter markers included.</li>
-          <li>Volume and pan keyframes on a clip whose speed was changed: that clip keeps its full level.</li>
-          <li>Opacity and blend modes.</li>
-          <li>Effects — Lumetri, blurs, the stabiliser — and keyframed motion. The clip arrives with its
-          static position, scale and rotation.</li>
-          <li>Crop and anchor point.</li>
+          <li>Keyframes and clip markers on a clip whose speed was changed: that clip keeps its still values.</li>
+          <li>Effects — Lumetri, blurs, the stabiliser.</li>
+          <li>A moving anchor point keeps its first position.</li>
           <li>Nested sequences: the nested clip is not placed, but the sequence itself converts as its own
           project, so you can import it and drop it back in.</li>
-          <li>A sequence starting at a timecode other than zero: every converted timeline starts at
-          00:00:00:00.</li>
           <li>A title mixing several styles keeps the first one; shapes in a graphic are dropped and only the
           text comes over.</li>
         </ul>
@@ -254,6 +255,10 @@
           Premiere writes out the open sequence alone.</li>
           <li><strong>Channel Volume and the Balance effect.</strong> Premiere leaves both out of the XML and
           says so in its report. Volume and the clip’s own Panner do come across.</li>
+          <li><strong>Chapter markers become ordinary markers.</strong> The XML writes a chapter exactly like any
+          other marker, so it arrives as one.</li>
+          <li><strong>Most blend modes.</strong> Only nine reach the XML; Overlay, Color Dodge and the rest are
+          dropped with a line in Premiere’s report, and Texturize has no Final Cut match.</li>
         </ul>
       </article>
 
@@ -269,12 +274,12 @@
       <div class="card">
         <h3>XML to FCPXML</h3>
         <p>Essential Graphics titles arrive as editable titles. Timecode and the real frame rate are kept, so phone,
-        Sony and DJI clips relink. A report shows what needs checking before you import. Not yet: markers,
-        most transitions, motion keyframes.</p>
+        Sony and DJI clips relink. A report shows what needs checking before you import. Not yet: most
+        transitions, nested sequences as clips.</p>
       </div>
       <div class="card">
         <h3>SendToX</h3>
-        <p>Carries more of the rest — markers, many transitions, motion keyframes. Essential Graphics titles
+        <p>Carries more transitions and places nested sequences as compound clips. Essential Graphics titles
         become markers, media timecode is dropped and frame rates are rounded, so Sony, DJI and phone clips often
         refuse to relink.</p>
       </div>
@@ -397,12 +402,11 @@
       <summary>What doesn't get converted?</summary>
       <ul>
         <li>Transitions other than a cross dissolve.</li>
-        <li>Markers.</li>
-        <li>Effects and colour grading, keyframed motion, opacity, crop.</li>
+        <li>Effects and colour grading.</li>
         <li>Nested sequences as clips — each nested sequence converts as its own project instead.</li>
       </ul>
-      <p>Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, position, scale and rotation,
-      still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
+      <p>Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend
+      modes, position, scale, rotation and crop with their keyframes, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
       silently.</p>
     </details>
 
