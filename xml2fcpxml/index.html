@@ -72,7 +72,7 @@
     "name": "What doesn't get converted?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "• Transitions other than a cross dissolve. • Effects and colour grading. • Nested sequences as clips — each nested sequence converts as its own project instead. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend modes, position, scale, rotation and crop with their keyframes, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
+     "text": "• Transitions other than a cross dissolve. • Effects and colour grading. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
     }
    },
    {
@@ -156,7 +156,7 @@
       <div class="card">
         <span class="dot blue"></span>
         <h3>A report before import</h3>
-        <p>Transitions, effects, nested sequences, missing fonts, uncertain frame rates: you see what
+        <p>Transitions, effects, missing fonts, uncertain frame rates: you see what
         needs attention before Final Cut does, with the clip and timecode for each. What needs your hand comes
         first; what is only worth knowing sits below it.</p>
       </div>
@@ -213,6 +213,7 @@
           move on a photo included.</li>
           <li>Opacity with its fades, and the blend modes Premiere writes out: Screen, Multiply, Add, Lighten,
           Darken, Soft Light, Hard Light and Difference.</li>
+          <li>Nested sequences as compound clips, trimmed and moved the way they are in Premiere.</li>
           <li>Markers — on the sequence and on clips, with their names and comments. Final Cut markers are single
           points of one colour, so a range marker arrives at its start and colours are not kept.</li>
           <li>The sequence’s start timecode, drop-frame included, so a timeline starting at 01:00:00:00 starts
@@ -234,8 +235,7 @@
           <li>Keyframes and clip markers on a clip whose speed was changed: that clip keeps its still values.</li>
           <li>Effects — Lumetri, blurs, the stabiliser.</li>
           <li>A moving anchor point keeps its first position.</li>
-          <li>Nested sequences: the nested clip is not placed, but the sequence itself converts as its own
-          project, so you can import it and drop it back in.</li>
+          <li>A speed change on a nested sequence: the compound clip plays at 100%.</li>
           <li>A title mixing several styles keeps the first one; shapes in a graphic are dropped and only the
           text comes over.</li>
         </ul>
@@ -276,11 +276,11 @@
         <h3>XML to FCPXML</h3>
         <p>Essential Graphics titles arrive as editable titles. Timecode and the real frame rate are kept, so phone,
         Sony and DJI clips relink. A report shows what needs checking before you import. Not yet: most
-        transitions, nested sequences as clips.</p>
+        transitions.</p>
       </div>
       <div class="card">
         <h3>SendToX</h3>
-        <p>Carries more transitions and places nested sequences as compound clips. Essential Graphics titles
+        <p>Carries more transitions. Essential Graphics titles
         become markers, media timecode is dropped and frame rates are rounded, so Sony, DJI and phone clips often
         refuse to relink.</p>
       </div>
@@ -404,10 +404,9 @@
       <ul>
         <li>Transitions other than a cross dissolve.</li>
         <li>Effects and colour grading.</li>
-        <li>Nested sequences as clips — each nested sequence converts as its own project instead.</li>
       </ul>
       <p>Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend
-      modes, position, scale, rotation and crop with their keyframes, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
+      modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
       silently.</p>
     </details>
 
