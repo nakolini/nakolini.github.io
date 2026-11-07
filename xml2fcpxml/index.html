@@ -77,6 +77,14 @@
    },
    {
     "@type": "Question",
+    "name": "Does it convert multicam edits?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes, with one step in Premiere first, because Premiere's XML export leaves multicam clips out. Duplicate the sequence, select all its clips, turn off Clip ▸ Multi-Camera ▸ Enable, export that copy and turn on Lay nested sequences out flat in the app: both cameras arrive on the timeline, cut where you cut them. The angle you picked is not kept; Flatten keeps it and drops the other camera."
+    }
+   },
+   {
+    "@type": "Question",
     "name": "Why does it say “Frame rate could be 59.94 or 60”?",
     "acceptedAnswer": {
      "@type": "Answer",
@@ -213,7 +221,10 @@
           move on a photo included.</li>
           <li>Opacity with its fades, and the blend modes Premiere writes out: Screen, Multiply, Add, Lighten,
           Darken, Soft Light, Hard Light and Difference.</li>
-          <li>Nested sequences as compound clips, trimmed and moved the way they are in Premiere.</li>
+          <li>Nested sequences as compound clips, trimmed and moved the way they are in Premiere — or laid out
+          flat, each clip the nest plays placed straight on the timeline.</li>
+          <li>Multicam edits, after one step in Premiere (see <a href="#multicam">How-to</a>): both cameras
+          arrive on the timeline, cut where you cut them.</li>
           <li>Markers — on the sequence and on clips, with their names and comments. Final Cut markers are single
           points of one colour, so a range marker arrives at its start and colours are not kept.</li>
           <li>The sequence’s start timecode, drop-frame included, so a timeline starting at 01:00:00:00 starts
@@ -236,6 +247,8 @@
           <li>Effects — Lumetri, blurs, the stabiliser.</li>
           <li>A moving anchor point keeps its first position.</li>
           <li>A speed change on a nested sequence: the compound clip plays at 100%.</li>
+          <li>The angle picked in a multicam clip: both cameras arrive and the top one shows. Flatten in Premiere
+          keeps the picked angle and drops the other camera.</li>
           <li>A title mixing several styles keeps the first one; shapes in a graphic are dropped and only the
           text comes over.</li>
         </ul>
@@ -246,6 +259,9 @@
         <p>Premiere drops these on the way out, into the XML itself. No converter can bring them back — not
         this one, not Final Cut, not DaVinci Resolve.</p>
         <ul>
+          <li><strong>Multicam clips.</strong> Premiere leaves every multicam clip out of the XML and keeps only
+          its sound. The app notices the sound with no picture above it and shows the
+          <a href="#multicam">one step</a> that brings the cameras over.</li>
           <li><strong>Freeze frames.</strong> A clip held with Add Frame Hold or Insert Frame Hold Segment is
           written out as an ordinary playing clip; nothing in the file says a frame was ever held.</li>
           <li><strong>Dip to Black becomes a Cross Dissolve.</strong> Premiere substitutes it on export and
@@ -308,6 +324,22 @@
         </ol>
         <p class="tip">To convert several sequences at once, select them all in the Project panel before exporting;
         the app lists each one and you choose which to convert.</p>
+      </article>
+
+      <article id="multicam">
+        <h3>Bring a multicam edit over</h3>
+        <p>Premiere's XML export leaves multicam clips out. Turned back into plain nested sequences, they come
+        across with both cameras.</p>
+        <ol>
+          <li>Duplicate the sequence in Premiere and open the copy.</li>
+          <li>Select all its clips and turn off <em>Clip ▸ Multi-Camera ▸ Enable</em> — one click does all of them.</li>
+          <li>Export the copy with <em>File ▸ Export ▸ Final Cut Pro XML…</em> and drop it on the app.</li>
+          <li>Turn on <em>Lay nested sequences out flat</em>. Each cut lands as its camera clips: the first camera
+          on the storyline, the second right above it.</li>
+        </ol>
+        <p class="tip">Final Cut shows the camera on top, not the angle picked in Premiere; hide the top clip to see
+        the other one. Need only the picked angles? Use <em>Flatten</em> instead of turning off Enable — the other
+        camera is left out and no switch is needed.</p>
       </article>
 
       <article id="relink">
@@ -408,6 +440,14 @@
       <p>Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend
       modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
       silently.</p>
+    </details>
+
+    <details>
+      <summary>Does it convert multicam edits?</summary>
+      <p>Yes, with one step in Premiere first, because Premiere's XML export leaves multicam clips out. Duplicate
+      the sequence, select all its clips, turn off <em>Clip ▸ Multi-Camera ▸ Enable</em>, export that copy and
+      turn on <em>Lay nested sequences out flat</em> in the app: both cameras arrive on the timeline, cut where you
+      cut them. The angle you picked is not kept; <em>Flatten</em> keeps it and drops the other camera.</p>
     </details>
 
     <details>
