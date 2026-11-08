@@ -72,7 +72,7 @@
     "name": "What doesn't get converted?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "• Transitions other than a cross dissolve. • Effects and colour grading. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
+     "text": "• Transitions other than a cross dissolve. • Effects and colour grading: an adjustment layer arrives as an empty Final Cut Adjustment Clip, ready for your grade. • Premiere's Motion Graphics templates (.mogrt), which Final Cut cannot open. Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears silently."
     }
    },
    {
@@ -212,8 +212,10 @@
           <li>Every sequence in the file, each as its own Final Cut project — you pick which ones to convert.</li>
           <li>The whole timeline: cuts, gaps, clip order. V1 becomes the primary storyline, V2 and up become
           connected clips, audio tracks become connected audio. Disabled clips arrive disabled.</li>
-          <li>Essential Graphics titles as real, editable Final Cut titles — text, font, size, colour,
-          alignment, position and scale.</li>
+          <li>Essential Graphics titles as real, editable Final Cut titles — text, font, size, colour, tracking,
+          alignment, position and scale, Vector Motion included.</li>
+          <li>Adjustment layers as Final Cut's own Adjustment Clips, in the same place and at the same length
+          (Final Cut Pro 11.1 or later). Their effects stay behind, so the clip arrives ready for your grade.</li>
           <li>Speed: a constant speed, reverse, and speed ramps with the whole curve rather than an average.</li>
           <li>Cross dissolves — between two clips, and the fade from or to black at the edge of one — with the
           audio crossfade where the audio travels inside the clip.</li>
@@ -244,13 +246,15 @@
           because Final Cut dissolves across a cut and there is nothing on the other side. The cut stays
           where it was.</li>
           <li>Keyframes and clip markers on a clip whose speed was changed: that clip keeps its still values.</li>
-          <li>Effects — Lumetri, blurs, the stabiliser.</li>
+          <li>Effects — Lumetri, blurs, the stabiliser — on clips and on adjustment layers alike.</li>
+          <li>Motion Graphics templates (.mogrt): Final Cut cannot open them, so the report lists where each one
+          was for you to rebuild.</li>
           <li>A moving anchor point keeps its first position.</li>
           <li>A speed change on a nested sequence: the compound clip plays at 100%.</li>
           <li>The angle picked in a multicam clip: both cameras arrive and the top one shows. Flatten in Premiere
           keeps the picked angle and drops the other camera.</li>
           <li>A title mixing several styles keeps the first one; shapes in a graphic are dropped and only the
-          text comes over.</li>
+          text comes over. A title turned or animated with Vector Motion keeps its first position and size.</li>
         </ul>
       </article>
 
@@ -349,7 +353,8 @@
         <ol>
           <li>Look at the report: <em>Phone or drone frame rate guessed</em> and <em>Frame rate could be 59.94 or 60</em>
           list exactly the clips at risk.</li>
-          <li>Click <em>Locate Media…</em> and choose the folders with the original files. Subfolders are searched too.</li>
+          <li>Click <em>Locate Media…</em> and choose the folders with the original files — footage, music and sound
+          effects. Subfolders are searched too.</li>
           <li>Wait for <em>Reading media</em> to finish, then save or open the result again.</li>
         </ol>
         <p class="tip">No footage on this Mac? Convert on the Mac that has it, or relink in Final Cut with
@@ -381,8 +386,8 @@
         <h3>What carries over in titles</h3>
         <ul>
           <li>Text, line breaks and any language, including Cyrillic.</li>
-          <li>Font, size, colour, left or centre alignment, and position on screen.</li>
-          <li>The layer's scale, folded into the font size.</li>
+          <li>Font, size, colour, tracking, left or centre alignment, and position on screen.</li>
+          <li>The layer's scale and the graphic's Vector Motion, folded into the position and font size.</li>
         </ul>
         <p>Shapes and backgrounds inside a graphic, gradients, strokes and shadows are not carried; the report
         names every title that had shapes. If a font isn't installed on this Mac, Final Cut shows a substitute
@@ -391,8 +396,10 @@
 
       <article id="graphic">
         <h3>A title shows up as “Graphic”</h3>
-        <p>When you duplicate a title in Premiere and only move it, Premiere doesn't write its text into the XML
-        at all — there is nothing to convert. The app keeps the title's position so you can retype it in place.</p>
+        <p>When you duplicate a title in Premiere and only move it, Premiere doesn't write its text into the XML.
+        The app takes the text and style from the title it was copied from, as long as that one is in the same
+        export. When it isn't, there is nothing to convert: the app keeps the title's position so you can retype
+        it in place.</p>
         <p class="tip">To avoid it, click into the text of each duplicated title in Premiere (even type and delete a
         letter) before exporting.</p>
       </article>
@@ -435,7 +442,9 @@
       <summary>What doesn't get converted?</summary>
       <ul>
         <li>Transitions other than a cross dissolve.</li>
-        <li>Effects and colour grading.</li>
+        <li>Effects and colour grading: an adjustment layer arrives as an empty Final Cut Adjustment Clip, ready
+        for your grade.</li>
+        <li>Premiere's Motion Graphics templates (.mogrt), which Final Cut cannot open.</li>
       </ul>
       <p>Cuts, audio with its volume and pan, speed changes and ramps, cross dissolves, markers, opacity and blend
       modes, position, scale, rotation and crop with their keyframes, nested sequences as compound clips, still images and titles do convert. Everything skipped is listed in the report with its clip and timecode, so nothing disappears
